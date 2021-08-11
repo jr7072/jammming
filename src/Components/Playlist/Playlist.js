@@ -7,11 +7,18 @@ export class Playlist extends React.Component {
         super(props);
 
         this.handleNameChange = this.handleNameChange.bind(this);
+        this.onSave = this.onSave.bind(this);
     }
     
     handleNameChange(e){
         let newName = e.target.value;
         this.props.onNameChange(newName);
+    }
+
+    onSave() {
+        let name = this.props.playlistName;
+        let trackArray = this.props.playlistTracks;
+        this.props.onSave(name, trackArray);
     }
 
     render() {
@@ -22,7 +29,7 @@ export class Playlist extends React.Component {
                <TrackList tracks={this.props.playlistTracks} 
                         onRemove={this.props.onRemove} 
                         isRemoval={true} />
-               <button className="Playlist-save" onClick={this.props.onSave}>SAVE TO SPOTIFY</button>
+               <button className="Playlist-save" onClick={this.onSave}>SAVE TO SPOTIFY</button>
            </div> 
         );
     }
