@@ -21,6 +21,8 @@ export class App extends React.Component{
     this.savePlaylist = this.savePlaylist.bind(this);
     this.search = this.search.bind(this);
   }
+  
+  //FIXME: Add global track audio flag
 
   addTrack(track) {
     if(this.state.playlistTracks.find(savedTrack => savedTrack.id === track.id)){
