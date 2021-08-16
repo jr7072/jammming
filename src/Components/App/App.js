@@ -22,7 +22,7 @@ export class App extends React.Component{
     this.search = this.search.bind(this);
   }
   
-  //FIXME: Add global track audio flag
+  //TODO: Add global track audio flag
 
   addTrack(track) {
     if(this.state.playlistTracks.find(savedTrack => savedTrack.id === track.id)){
@@ -73,6 +73,7 @@ export class App extends React.Component{
           <div className="App-playlist">
             <SearchResults searchResults={this.state.searchResults} 
                             onAdd={this.addTrack}/>
+                              {*/add props tag for audio*/}
             <Playlist playlistName={this.state.playlistName} 
                       playlistTracks={this.state.playlistTracks} 
                       onRemove={this.removeTrack} 
