@@ -1,3 +1,4 @@
+
 const clientId = "";
 const redirectUri = "http://localhost:3000/"
 let userToken = "";
@@ -63,6 +64,7 @@ let Spotify = {
                 artist: track.artists[0].name,
                 album: track.album.name,
                 uri: track.uri,
+
             }))
 
             return searchArray
@@ -134,6 +136,21 @@ let Spotify = {
         
 
 
+
+
+    },
+
+    getSample(trackId) {
+
+        const accessToken = this.getAccessToken();
+        const endpoint = `https://api.spotify.com/v1/tracks/${trackId}`;
+        const settings = {
+            headers: {Authorization: `Bearer ${accessToken}`}
+        };
+        
+        return fetch(endpoint, settings)
+                .then(response => response.json())
+                .then(jsonResponse => jsonResponse.preview_url);
 
 
     }
